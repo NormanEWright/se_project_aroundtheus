@@ -1,0 +1,25 @@
+/* Profile Block */
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px dashed lightgreen;
+}
+
+.profile__photo {
+  height: 120px;
+  width: 120px;
+}
+
+.profile__info {
+  color: #FFFFFF;
+  margin-left: 30px;
+  margin-right: 165px;
+  width: 415px;
+}
+
+.profile__add-button {
+  height: 50px;
+  width: 150px;
+}
