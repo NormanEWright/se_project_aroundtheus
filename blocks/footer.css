@@ -1,0 +1,10 @@
+/* Footer Block */
+.footer {
+  width: 318px;
+  margin-bottom: 60px;
+}
+
+.footer__copyright {
+  color: #545454;
+  font-size: 1em;
+}
