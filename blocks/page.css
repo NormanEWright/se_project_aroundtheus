@@ -1,0 +1,13 @@
+/* Page Block */
+.page {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+}
+
+.page__wrapper {
+  width: 880px;
+  margin: auto;
+  border: 1px dashed lightgray;
+}
