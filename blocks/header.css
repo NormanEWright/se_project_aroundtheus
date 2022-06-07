@@ -6,3 +6,8 @@
   margin: 45px auto 40px;
   border-bottom: 1px solid #545454;
 }
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+}
