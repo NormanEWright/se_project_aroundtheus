@@ -61,3 +61,17 @@
   grid-row-start: 2;
   grid-row-end: 3;
 }
+
+/* Large Screens */
+@media screen and (min-width: 1280px) {
+  .element__content {
+    height: 79px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

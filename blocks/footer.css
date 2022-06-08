@@ -8,3 +8,15 @@
   color: #545454;
   font-size: 1em;
 }
+
+/* Large Screens */
+@media screen and (min-width: 1280px) {
+  .footer {
+    width: 318px;
+    margin-bottom: 60px;
+  }
+  .footer__copyright {
+    color: #545454;
+    font-size: 1em;
+  }
+}
