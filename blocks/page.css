@@ -10,4 +10,5 @@
   width: 880px;
   margin: auto;
   border: 1px dashed lightgray;
+  box-sizing: border-box;
 }
