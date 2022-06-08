@@ -9,6 +9,9 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   gap: 20px 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .element {
@@ -18,9 +21,43 @@
   width: 282px;
   border-radius: 10px;
   background-color: #FFFFFF;
+  position: relative;
 }
 
 .element__photo {
   width: 282px;
   height: 282px;
+}
+
+.element__content {
+  height: 79px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.element__title {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  grid-column-start: 2;
+  grid-column-end: 11;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.element__btn {
+  height: 21px;
+  width: 21px;
+  grid-column-start: 11;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
