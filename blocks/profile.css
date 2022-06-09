@@ -24,10 +24,14 @@
 .profile__name {
   margin: 0 0 14px 0;
   font-size: 22px;
+  font-weight: 500;
+  line-height: calc(26.63px / 22px);
 }
 .profile__occupation {
   margin: 0;
   font-size: 14px;
+  font-weight: 400;
+  line-height: calc(16.94px / 14px);
 }
 .profile__add-button {
   height: 50px;
@@ -60,6 +64,14 @@
   }
   .profile__name {
     margin-bottom: 16px;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: calc(48px / 42px);
+  }
+  .profile__occupation {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: calc(21.78px / 18px);
   }
   .profile__add-button {
     width: 150px;
