@@ -3,22 +3,23 @@
   display: block;
   height: 100%;
   width: 100%;
+  padding-top: 28px;
   background-color: #000000;
 }
-
 .page__wrapper {
-  width: 880px;
-  margin: auto;
-  border: 1px dashed lightgray;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 /* Large Screens */
 @media screen and (min-width: 1280px) {
+  .page {
+    padding-top: 45px;
+  }
   .page__wrapper {
     width: 880px;
     margin: auto;
-    border: 1px dashed lightgray;
-    box-sizing: border-box;
   }
 }
