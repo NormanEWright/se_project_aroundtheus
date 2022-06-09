@@ -4,3 +4,13 @@
 @import url('../blocks/profile.css');
 @import url('../blocks/elements.css');
 @import url('../blocks/footer.css');
+
+/* 
+  To Do's:
+  add media query for screens between 320px and 768px
+  add media query for screens between 768px and 1280px
+  add edit button to profile block
+  validate html and css files
+  review project checklist
+  review site at different screen sizes
+*/
