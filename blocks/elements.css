@@ -40,7 +40,6 @@
   padding: 0;
   font-size: 24px;
   font-weight: 900;
-  line-height: calc(29.05px / 24px);
   grid-column-start: 2;
   grid-column-end: 11;
   grid-row-start: 2;
@@ -94,7 +93,5 @@
   }
   .element__title {
     font-size: 24px;
-    font-weight: 900;
-    line-height: calc(29.05px / 24px);
   }
 }
