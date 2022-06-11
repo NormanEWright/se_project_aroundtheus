@@ -8,9 +8,6 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 20px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 .element {
   margin: 0;
@@ -47,6 +44,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .element__favorite-btn {
   background-image: url('../images/favorite-button.png');
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-/* Large Screens */
+/* Large Screen devices */
 @media screen and (min-width: 1280px) {
   .elements {
     width: 100%;
@@ -93,5 +93,19 @@
   }
   .element__title {
     font-size: 24px;
+  }
+}
+
+/* Tablet devices */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .elements {
+    width: 584px;
+    height: auto;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
   }
 }
