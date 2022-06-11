@@ -32,38 +32,44 @@
   height: 18px;
   width: 18px;
   margin-left: 10px;
-  background-image: url('../images/edit-button.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  padding: 5px;
+  line-height: 0;
   opacity: 1;
   transition: opacity 0.5s ease;
-  border: none;
+  border: 1px solid #FFFFFF;
   background-color: transparent;
+  box-sizing: border-box;
 }
 .profile__edit-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+.profile__edit-button-svg {
+  width: 7.5px;
+  height: 7.5px;
 }
 .profile__occupation {
   margin: 0;
   font-size: 14px;
 }
 .profile__add-button {
-  height: 50px;
+  height: auto;
   width: 282px;
-  background-image: url('../images/add-button-lg.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  padding: 14px 64px;
   opacity: 1;
   transition: opacity 0.5s ease;
-  border: none;
+  border: 2px solid #FFF;
+  border-radius: 2px;
   background-color: transparent;
 }
 .profile__add-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.profile__add-button-svg {
+  height: 16px;
+  width: 16px;
 }
 
 /* Large Screens */
@@ -96,8 +102,10 @@
   }
   .profile__add-button {
     width: 150px;
-    height: 50px;
-    background-image: url('../images/add-button.png');
+  }
+  .profile__add-button-svg {
+    height: 22px;
+    width: 22px;
   }
 }
 
@@ -129,6 +137,6 @@
   .profile__add-button {
     width: 150px;
     height: 50px;
-    background-image: url('../images/add-button.png');
+    padding: 14px 64px;
   }
 }
