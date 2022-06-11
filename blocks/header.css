@@ -6,20 +6,24 @@
   margin: 0px;
   border-bottom: 1px solid #545454;
 }
+
 .header__logo {
   width: 126px;
   height: 24px;
   margin-left: 27px;
 }
 
-/* Large Screens */
+/* Media Query for Large Screens */
 @media screen and (min-width: 1280px) {
+
   .header {
     height: 74px;
     margin: 0 auto;
   }
+
   .header__logo {
     width: 173px;
     height: 33px;
   }
+  
 }
