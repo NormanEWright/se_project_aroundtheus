@@ -9,7 +9,7 @@
   justify-content: flex-start;
   gap: 20px;
 }
-.element {
+.elements__card {
   margin: 0;
   padding: 0;
   height: 361px;
@@ -18,11 +18,11 @@
   background-color: #FFFFFF;
   position: relative;
 }
-.element__photo {
+.elements__card-photo {
   width: 282px;
   height: 282px;
 }
-.element__content {
+.elements__card-content {
   height: 79px;
   width: 100%;
   display: grid;
@@ -32,7 +32,7 @@
   left: 0;
   bottom: 0;
 }
-.element__title {
+.elements__card-title {
   margin: 0;
   padding: 0;
   font-size: 24px;
@@ -48,7 +48,7 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.element__favorite-btn {
+.elements__card-favorite-btn {
   background-image: url('../images/favorite-button.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -62,7 +62,7 @@
   grid-row-start: 2;
   grid-row-end: 3;
 }
-.element__favorite-btn:hover {
+.elements__card-favorite-btn:hover {
   opacity: 0.5;
   cursor: pointer;
 }
@@ -81,7 +81,7 @@
     white-space: nowrap;
     overflow: hidden;
   }
-  .element__content {
+  .elements__card-content {
     height: 79px;
     width: 100%;
     display: grid;
@@ -91,7 +91,7 @@
     left: 0;
     bottom: 0;
   }
-  .element__title {
+  .elements__card-title {
     font-size: 24px;
   }
 }
