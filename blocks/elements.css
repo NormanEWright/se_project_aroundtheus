@@ -26,7 +26,7 @@
 }
 
 .elements__card-content {
-  height: 79px;
+  height: 80px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -34,6 +34,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
+  align-items: center;
 }
 
 .elements__card-title {
