@@ -38,6 +38,8 @@
   background-size: cover;
   opacity: 1;
   transition: opacity 0.5s ease;
+  border: none;
+  background-color: transparent;
 }
 .profile__edit-button:hover {
   opacity: 0.6;
@@ -56,6 +58,8 @@
   background-size: cover;
   opacity: 1;
   transition: opacity 0.5s ease;
+  border: none;
+  background-color: transparent;
 }
 .profile__add-button:hover {
   opacity: 0.6;
