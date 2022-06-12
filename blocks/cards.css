@@ -11,6 +11,7 @@
   width: 282px;
   height: 282px;
   display: block;
+  border-radius: 50%;
 }
 
 .card__content {
