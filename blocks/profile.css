@@ -101,7 +101,7 @@
 @media screen and (min-width: 768px) {
 
   .profile {
-    width: 100%;
+    width: calc(100% - 40px);
     height: 120px;
     display: flex;
     flex-direction: row;
@@ -151,6 +151,7 @@
 @media screen and (min-width: 1280px) {
 
   .profile {
+    width: 100%;
     justify-content: flex-start;
   }
 
