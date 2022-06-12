@@ -17,6 +17,7 @@
 @media screen and (min-width: 768px) {
 
   .header {
+    width: calc(100% - 40px);
     height: 74px;
     margin: 0 auto;
   }
@@ -27,4 +28,13 @@
     margin-left: 0;
   }
   
+}
+
+/* Media Query for Large Screens */
+@media screen and (min-width: 1280px) {
+
+  .header {
+    width: 100%;
+  }
+
 }
