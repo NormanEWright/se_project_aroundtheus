@@ -7,6 +7,7 @@
 .footer__copyright {
   color: #545454;
   font-size: 14px;
+    margin: 0;
 }
 
 /* Media Query for Tablet devices and Large Screens */
@@ -19,7 +20,6 @@
 
   .footer__copyright {
     font-size: 18px;
-    margin: 0;
   }
   
 }
