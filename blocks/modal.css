@@ -1,5 +1,5 @@
 .modal {
-  display: block;
+  display: flex;
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -10,8 +10,8 @@
 
 .modal__form {
   max-width: 282px;
-  height: auto;
-  padding: 34px 36px 36px;
+  height: 322px;
+  padding: 25px 22px;
   margin: 123px auto;
   background-color: #FFFFFF;
   border-radius: 10px;
@@ -22,6 +22,7 @@
 .modal__form-heading {
   font-size: 18px;
   font-weight: 900px;
+  margin-top: 0;
   margin-bottom: 75px;
 }
 
@@ -41,9 +42,9 @@
 }
 
 .modal__form-save-button {
-  margin-top: 48px;
+  margin-top: 45px;
   width: 100%;
-  height: 50px;
+  height: 46px;
   color: #FFFFFF;
   background-color: #000000;
   border-radius: 2px;
@@ -66,6 +67,7 @@
 
   .modal__form {
     max-width: 430px;
+    height: 330px;
     margin-top: 195px;
     padding: 34px 36px 36px;
     border-radius: 10px;
