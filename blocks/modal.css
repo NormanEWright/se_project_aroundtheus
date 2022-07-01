@@ -66,6 +66,10 @@
   background-color: transparent;
 }
 
+.modal__form-close-button:hover {
+  cursor: pointer;
+}
+
 /* Media Query for Tablet devices */
 @media screen and (min-width: 768px) {
 
