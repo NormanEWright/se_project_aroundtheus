@@ -55,7 +55,7 @@
   border-style: none;
 }
 
-.model__form-close-button {
+.modal__form-close-button {
   height: auto;
   width: 26px;
   padding: 0;
@@ -87,7 +87,7 @@
     height: 50px;
   }
 
-  .model__form-close-button {
+  .modal__form-close-button {
     height: 40px;
     width: 40px;
     top: -40px;
