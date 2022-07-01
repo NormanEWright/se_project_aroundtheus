@@ -8,6 +8,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.modal__opened {
+  display: flex;
+}
+
 .modal__form {
   max-width: 282px;
   height: 322px;
