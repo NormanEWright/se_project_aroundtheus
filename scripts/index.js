@@ -64,18 +64,19 @@ function handleProfileFormSubmit(evt) {
 
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
-
-function renderCards(data) {
-  initialCards.forEach(function(obj) {
-    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-    const cardTitle = cardElement.querySelector(".card__title");
-    const cardImage = cardElement.querySelector(".card__photo");
-    cardImage.src = obj.link;
-    cardImage.alt = obj.name;
-    cardTitle.textContent = obj.name;
-    cardList.appendChild(cardElement);
-  });
+function createCard(card) {
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardTitle = cardElement.querySelector(".card__title");
+  const cardImage = cardElement.querySelector(".card__photo");
+  cardImage.src = card.link;
+  cardImage.alt = card.name;
+  cardTitle.textContent = card.name;
+  return cardElement;
 }
 
+function renderCards(card) {
+  const cardElement = createCard(card);
+  cardList.prepend(cardElement);
+}
 
-renderCards(initialCards);
+initialCards.reverse().forEach(renderCards);
