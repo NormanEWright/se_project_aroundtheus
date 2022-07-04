@@ -60,15 +60,15 @@ profileFormElement.addEventListener('submit', handleProfileFormSubmit);
 
 
 function getCardElement(data) {
-  initialCards.forEach(function(data) {
+  initialCards.forEach(function(obj) {
     const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
     const cardTitle = cardElement.querySelector(".card__title");
     const cardImage = cardElement.querySelector(".card__photo");
     cardImage.style.borderTopLeftRadius = "10px";
     cardImage.style.borderTopRightRadius = "10px";
-    cardImage.src = data.link;
-    cardImage.alt = data.name;
-    cardTitle.textContent = data.name;
+    cardImage.src = obj.link;
+    cardImage.alt = obj.name;
+    cardTitle.textContent = obj.name;
     cardList.appendChild(cardElement);
   });
 }
