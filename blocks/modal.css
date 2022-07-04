@@ -8,7 +8,7 @@
   visibility: none;
   opacity: 0;
   pointer-events: none;
-  transition: visibility 0s 0.5s linear;
+  transition: visibility 0s 0.5s linear, opacity 0.5s linear;
 }
 
 .modal__opened {
