@@ -33,6 +33,10 @@ const nameInput = document.querySelector("#name");
 const jobInput = document.querySelector("#job");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__occupation");
+const cardList = document.querySelector(".elements__list");
+const cardTemplate = document.querySelector("#card-template").content;
+
+
 
 function toggleModalWindow() {
   nameInput.value = document.querySelector(".profile__name").textContent;
@@ -43,8 +47,8 @@ function toggleModalWindow() {
 editProfileButton.addEventListener("click", toggleModalWindow);
 closeModalButton.addEventListener("click", toggleModalWindow);
 
-function handleProfileFormSubmit(e) {
-  e.preventDefault();
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
@@ -53,3 +57,21 @@ function handleProfileFormSubmit(e) {
 }
 
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);
+
+
+function getCardElement(data) {
+  initialCards.forEach(function(data) {
+    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+    const cardTitle = cardElement.querySelector(".card__title");
+    const cardImage = cardElement.querySelector(".card__photo");
+    cardImage.style.borderTopLeftRadius = "10px";
+    cardImage.style.borderTopRightRadius = "10px";
+    cardImage.src = data.link;
+    cardImage.alt = data.name;
+    cardTitle.textContent = data.name;
+    cardList.appendChild(cardElement);
+  });
+}
+
+
+getCardElement(initialCards);
