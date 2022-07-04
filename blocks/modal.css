@@ -55,6 +55,10 @@
   border-style: none;
 }
 
+.modal__form-save-button:hover {
+  cursor: pointer;
+}
+
 .modal__form-close-button {
   height: auto;
   width: 26px;
