@@ -36,8 +36,15 @@ const profileJob = document.querySelector(".profile__occupation");
 const cardList = document.querySelector(".elements__list");
 const cardTemplate = document.querySelector("#card-template").content;
 
+function openProfileModal() {
+  modal.classList.add("modal__opened");
+}
 
+function closeProfileModal() {
+  modal.classList.remove("modal__opened");
+}
 
+// Remove this block
 function toggleModalWindow() {
   nameInput.value = document.querySelector(".profile__name").textContent;
   jobInput.value = document.querySelector(".profile__occupation").textContent;
