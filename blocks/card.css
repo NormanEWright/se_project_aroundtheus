@@ -5,6 +5,7 @@
   width: 282px;
   border-radius: 10px;
   background-color: #FFFFFF;
+  position: relative;
 }
 
 .card__photo {
@@ -34,9 +35,6 @@
 }
 
 .card__like-button {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   opacity: 1;
   transition: opacity 0.5s ease;
   height: 21px;
@@ -48,5 +46,20 @@
 
 .card__like-button:hover {
   opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__delete-button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  border: none;
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.card__delete-button:hover {
+  opacity: 0.6;
   cursor: pointer;
 }
