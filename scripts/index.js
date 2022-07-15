@@ -80,3 +80,12 @@ function renderCards(card) {
 }
 
 initialCards.reverse().forEach(renderCards);
+
+// Task 5: Deleting a card
+const deleteCardButtonList = document.querySelectorAll(".card__delete-button");
+
+deleteCardButtonList.forEach(function(trash) {
+  trash.addEventListener("click", (evt) => {
+    evt.target.parentElement.parentElement.remove();
+  });
+});
