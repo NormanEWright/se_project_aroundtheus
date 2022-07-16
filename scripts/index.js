@@ -1,27 +1,27 @@
 // Initial Cards Object
 const initialCards = [
   {
-    name: "Yosemite Valley",
+    title: "Yosemite Valley",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
   },
   {
-    name: "Lake Louise",
+    title: "Lake Louise",
     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
   },
   {
-    name: "Bald Mountains",
+    title: "Bald Mountains",
     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
   },
   {
-    name: "Latemar",
+    title: "Latemar",
     link: "https://code.s3.yandex.net/web-code/latemar.jpg",
   },
   {
-    name: "Vanoise National Park",
+    title: "Vanoise National Park",
     link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
   },
   {
-    name: "Lago di Braies",
+    title: "Lago di Braies",
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
@@ -36,6 +36,7 @@ const editProfileForm = editProfileModal.querySelector("#edit-profile-form");
 const addCardBtn = document.querySelector(".profile__add-card-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const closeAddCardModalBtn = addCardModal.querySelector(".form__close-button");
+const addCardForm = addCardModal.querySelector("#add-card-form");
 
 // View Photo Modal, Close Button
 const viewPhotoModal = document.querySelector("#view-photo-modal");
@@ -49,23 +50,44 @@ const jobInput = document.querySelector("#job");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__occupation");
 
+// Add Card Inputs
+const cardTitleInput = addCardModal.querySelector("#title");
+const cardLinkInput = addCardModal.querySelector("#link");
+
 // Card List, Card Template
 const cardList = document.querySelector(".elements__list");
 const cardTemplate = document.querySelector("#card-template").content;
 
-// Creadte Cards
+// Toggle Like Button
+const toggleLikeBtn = function (btn) {
+  btn.classList.toggle("card__like-button_active");
+}
+
+// Create Cards
 function createCard(card) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector(".card__photo");
+  const deleteCardBtn = cardElement.querySelector(".card__delete-button");
+  const cardLikeBtn = cardElement.querySelector(".card__like-button");
+
   cardImage.src = card.link;
-  cardImage.alt = card.name;
-  cardTitle.textContent = card.name;
+  cardImage.alt = card.title;
+  cardTitle.textContent = card.title;
 
   cardImage.addEventListener("click", () => {
     let title = cardImage.alt;
     let link = cardImage.src;
     toggleModal(viewPhotoModal, {title, link});
+  });
+
+  cardLikeBtn.addEventListener("click", () => {
+    toggleLikeBtn(cardLikeBtn);
+  });
+
+  deleteCardBtn.addEventListener("click", () => {
+    console.log("Delet button clicked!");
+    removeCard(cardElement);
   });
 
   return cardElement;
@@ -79,18 +101,62 @@ function renderCards(card) {
 
 initialCards.reverse().forEach(renderCards);
 
+// Delete Card
+const removeCard = function (card) {
+  card.remove();
+}
+
 // Render Photo in Modal
 const renderPhoto = function(cardData) {
-  console.log(cardData);
   modalPhoto.src = cardData.link;
   modalPhoto.alt = cardData.title;
   modalPhotoTitle.textContent = cardData.title;
 }
 
+// Edit Profile
+function fillProfileForm() {
+  nameInput.value = document.querySelector(".profile__name").textContent;
+  jobInput.value = document.querySelector(".profile__occupation").textContent;
+}
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+
+  toggleModal(editProfileModal);
+}
+
+editProfileForm.addEventListener('submit', handleProfileFormSubmit);
+
+// Add Card
+const clearAddCardFormInputs = function () {
+  cardTitleInput.value = "";
+  cardLinkInput.value = "";
+}
+
+function handleAddCardform(evt) {
+  evt.preventDefault();
+
+  let title = cardTitleInput.value;
+  let link = cardLinkInput.value;
+
+  renderCards({
+    title,
+    link
+  });
+
+  clearAddCardFormInputs();
+  toggleModal(addCardModal);
+}
+
+addCardForm.addEventListener("submit", handleAddCardform);
+
 // Toggle Modals
 const toggleModal = function (modal, cardData = {}) {
-  if (modal === editProfileModal)  {
-    fillProfileForm();    
+  if (modal === editProfileModal) {
+    fillProfileForm();
   }
 
   if (modal === viewPhotoModal) {
@@ -119,33 +185,3 @@ closeAddCardModalBtn.addEventListener("click", () => {
 closePhotoModalBtn.addEventListener("click", () => {
   toggleModal(viewPhotoModal);
 });
-
-// Edit Profile
-function fillProfileForm() {
-  nameInput.value = document.querySelector(".profile__name").textContent;
-  jobInput.value = document.querySelector(".profile__occupation").textContent;
-}
-
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-
-  toggleModal(editProfileModal);
-}
-
-editProfileForm.addEventListener('submit', handleProfileFormSubmit);
-
-// Add Card
-
-
-// Delete Card
-const deleteCardButtonList = document.querySelectorAll(".card__delete-button");
-
-deleteCardButtonList.forEach(function (trash) {
-  trash.addEventListener("click", (evt) => {
-    evt.target.parentElement.parentElement.remove();
-  });
-});
-
