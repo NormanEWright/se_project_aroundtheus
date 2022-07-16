@@ -88,12 +88,12 @@
   background-color: transparent;
 }
 
-.profile__add-button:hover {
+.profile__add-card-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 
-.profile__add-button-svg {
+.profile__add-card-button-svg {
   height: 16px;
   width: 16px;
 }
@@ -142,7 +142,7 @@
     width: 150px;
   }
 
-  .profile__add-button-svg {
+  .profile__add-card-button-svg {
     height: 22px;
     width: 22px;
   }
