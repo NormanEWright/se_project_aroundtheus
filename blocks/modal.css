@@ -9,6 +9,9 @@
   opacity: 0;
   pointer-events: none;
   transition: visibility 0s 0.5s linear, opacity 0.5s linear;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
 .modal__opened {
@@ -18,95 +21,59 @@
   transition: visibility 0s, opacity 0.5s linear;
 }
 
-.modal__form {
-  max-width: 282px;
-  height: 322px;
-  padding: 25px 22px;
-  margin: 123px auto;
-  background-color: #FFFFFF;
+.modal__photo-container {
+  display: inline-block;
+  max-width: 75vw;
+  max-height:75vh;
+  padding: 0;
+  margin: 90px auto 0;
   border-radius: 10px;
   position: relative;
   box-sizing: border-box;
 }
 
-.modal__form-heading {
-  font-size: 18px;
-  font-weight: 900px;
-  margin-top: 0;
-  margin-bottom: 75px;
+.modal__photo {
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: auto;
+  object-fit: cover;
 }
 
-.modal__form-input {
-  height: 27px;
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 30px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.modal__form-input:last-of-type {
-  margin-bottom: 0px;
-}
-
-.modal__form-save-button {
-  margin-top: 45px;
-  width: 100%;
-  height: 46px;
+.modal__photo-title {
   color: #FFFFFF;
-  background-color: #000000;
-  border-radius: 2px;
-  border-style: none;
+  font-size: 12px;
 }
 
-.modal__form-save-button:hover {
-  cursor: pointer;
-}
-
-.modal__form-close-button {
-  height: auto;
-  width: 26px;
+.modal__photo-close-button {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: -30px;
+  right: -30px;
   padding: 0;
   border: none;
-  position: absolute;
-  top: -48px;
-  right: 0px;
   background-color: transparent;
   transform: rotate(-45deg);
 }
 
-.modal__form-close-button:hover {
-  cursor: pointer;
+.modal__photo-close-button img {
+  height: 30px;
+  width: 30px;
 }
 
 /* Media Query for Tablet devices */
 @media screen and (min-width: 768px) {
 
-  .modal__form {
-    max-width: 430px;
-    height: 330px;
-    margin-top: 195px;
-    padding: 34px 36px 36px;
-    border-radius: 10px;
-  }
-
-  .modal__form-heading {
-    font-size: 24px;
-    margin-bottom: 54px;
-  }
-
-  .modal__form-save-button {
-    margin-top: 48px;
-    height: 50px;
-  }
-
-  .modal__form-close-button {
+  .modal__photo-close-button {
     height: 40px;
     width: 40px;
-    top: -40px;
+    top: -48px;
     right: -40px;
+  }
+
+  .modal__photo-close-button img {
+    height: 40px;
+    width: 40px;
   }
 
 }
