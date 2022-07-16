@@ -41,8 +41,10 @@
 }
 
 .modal__photo-title {
+  margin-top: 10px;
   color: #FFFFFF;
   font-size: 12px;
+  font-weight: 400;
 }
 
 .modal__photo-close-button {
