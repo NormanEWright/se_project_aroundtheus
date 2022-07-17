@@ -86,7 +86,6 @@ function createCard(card) {
   });
 
   deleteCardBtn.addEventListener("click", () => {
-    console.log("Delet button clicked!");
     removeCard(cardElement);
   });
 
