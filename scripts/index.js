@@ -29,20 +29,20 @@ const initialCards = [
 // Edit Profile Button, Modal, Close Button
 const editProfileBtn = document.querySelector(".profile__edit-button");
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const closeProfileModalBtn = editProfileModal.querySelector(".form__close-button");
 const editProfileForm = editProfileModal.querySelector("#edit-profile-form");
 
 // Add Card Button, Modal, Close Button
 const addCardBtn = document.querySelector(".profile__add-card-button");
 const addCardModal = document.querySelector("#add-card-modal");
-const closeAddCardModalBtn = addCardModal.querySelector(".form__close-button");
 const addCardForm = addCardModal.querySelector("#add-card-form");
 
 // View Photo Modal, Close Button
 const viewPhotoModal = document.querySelector("#view-photo-modal");
-const closePhotoModalBtn = viewPhotoModal.querySelector(".modal__photo-close-button");
 const modalPhoto = viewPhotoModal.querySelector(".modal__photo");
 const modalPhotoTitle = viewPhotoModal.querySelector(".modal__photo-title");
+
+// Get All Close Buttons
+const closeButtons = document.querySelectorAll(".modal__close-button");
 
 // Edit Profile Form Inputs
 const nameInput = document.querySelector("#name");
@@ -76,9 +76,8 @@ function createCard(card) {
   cardTitle.textContent = card.title;
 
   cardImage.addEventListener("click", () => {
-    let title = cardImage.alt;
-    let link = cardImage.src;
-    toggleModal(viewPhotoModal, {title, link});
+    renderPhoto(card);
+    openPopup(viewPhotoModal);
   });
 
   cardLikeBtn.addEventListener("click", () => {
@@ -106,7 +105,7 @@ const removeCard = function (card) {
 }
 
 // Render Photo in Modal
-const renderPhoto = function(cardData) {
+function renderPhoto(cardData) {
   modalPhoto.src = cardData.link;
   modalPhoto.alt = cardData.title;
   modalPhotoTitle.textContent = cardData.title;
@@ -114,8 +113,8 @@ const renderPhoto = function(cardData) {
 
 // Edit Profile
 function fillProfileForm() {
-  nameInput.value = document.querySelector(".profile__name").textContent;
-  jobInput.value = document.querySelector(".profile__occupation").textContent;
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 }
 
 function handleProfileFormSubmit(evt) {
@@ -124,63 +123,49 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
 
-  toggleModal(editProfileModal);
+  closePopup(editProfileModal);
 }
 
 editProfileForm.addEventListener('submit', handleProfileFormSubmit);
 
 // Add Card
-const clearAddCardFormInputs = function () {
-  cardTitleInput.value = "";
-  cardLinkInput.value = "";
-}
-
-function handleAddCardform(evt) {
+function handleAddCardForm(evt) {
   evt.preventDefault();
 
-  let title = cardTitleInput.value;
-  let link = cardLinkInput.value;
+  const title = cardTitleInput.value;
+  const link = cardLinkInput.value;
 
   renderCards({
     title,
     link
   });
 
-  clearAddCardFormInputs();
-  toggleModal(addCardModal);
+  evt.target.reset();
+  closePopup(addCardModal);
 }
 
-addCardForm.addEventListener("submit", handleAddCardform);
+addCardForm.addEventListener("submit", handleAddCardForm);
 
-// Toggle Modals
-const toggleModal = function (modal, cardData = {}) {
-  if (modal === editProfileModal) {
-    fillProfileForm();
-  }
-
-  if (modal === viewPhotoModal) {
-    renderPhoto(cardData);
-  }
-
-  modal.classList.toggle("modal__opened");
+// Open Popups
+function openPopup(popup) {
+  popup.classList.add("modal_opened");
 }
 
 editProfileBtn.addEventListener("click", () => {
-  toggleModal(editProfileModal);
+  fillProfileForm();
+  openPopup(editProfileModal);
 });
 
-addCardBtn.addEventListener("click", (evt) => {
-  toggleModal(addCardModal);
+addCardBtn.addEventListener("click", () => {
+  openPopup(addCardModal);
 })
 
-closeProfileModalBtn.addEventListener("click", () => {
-  toggleModal(editProfileModal);
-});
+// Close Popups
+function closePopup(popup) {
+  popup.classList.remove("modal_opened");
+}
 
-closeAddCardModalBtn.addEventListener("click", () => {
-  toggleModal(addCardModal);
-});
-
-closePhotoModalBtn.addEventListener("click", () => {
-  toggleModal(viewPhotoModal);
+closeButtons.forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closePopup(popup));
 });
