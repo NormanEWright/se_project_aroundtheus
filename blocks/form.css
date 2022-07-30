@@ -87,7 +87,7 @@
   border-bottom: 1px solid #FF0000;
 }
 
-.form__error_visible {
+.form__input-error_active {
   visibility: visible;
   color: #FF0000;
   font-size: 12px;
