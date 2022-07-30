@@ -87,12 +87,11 @@
   border-bottom: 1px solid #FF0000;
 }
 
-.form__input-error-active {
+.form__error_visible {
   visibility: visible;
   color: #FF0000;
   font-size: 12px;
   line-height: 15px;
-  /* padding: 0; */
 }
 
 /* Media Query for Tablet devices */
