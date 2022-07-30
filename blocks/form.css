@@ -20,7 +20,7 @@
   height: 27px;
   width: 100%;
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -32,9 +32,9 @@
 }
 
 .form__save-button {
-  margin-top: 45px;
+  margin-top: 30px;
   width: 100%;
-  height: 46px;
+  height: 44px;
   color: #FFFFFF;
   background-color: #000000;
   border-radius: 2px;
@@ -43,6 +43,13 @@
 
 .form__save-button:hover {
   cursor: pointer;
+}
+
+.form__save-button_disabled {
+  opacity: 0.2;
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .form__close-button {
@@ -66,6 +73,28 @@
   cursor: pointer;
 }
 
+.form .form__input-error:first-of-type {
+  margin-bottom: 13px;
+}
+
+.form__input-error {
+  display: inline-block;
+  visibility: hidden;
+  margin: 0;
+}
+
+.form__input_type_error {
+  border-bottom: 1px solid #FF0000;
+}
+
+.form__input-error-active {
+  visibility: visible;
+  color: #FF0000;
+  font-size: 12px;
+  line-height: 15px;
+  /* padding: 0; */
+}
+
 /* Media Query for Tablet devices */
 @media screen and (min-width: 768px) {
 
@@ -79,11 +108,11 @@
 
   .form__heading {
     font-size: 24px;
-    margin-bottom: 54px;
+    margin-bottom: 30px;
   }
 
   .form__save-button {
-    margin-top: 48px;
+    margin-top: 40px;
     height: 50px;
   }
 
