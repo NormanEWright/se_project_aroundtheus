@@ -169,3 +169,25 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closePopup(popup));
 });
+
+
+// 3. Closing the Popup by Clicking the Overlay
+const modalList = document.querySelectorAll(".modal");
+
+modalList.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closePopup(modal);
+    };
+  });
+});
+
+// 4. Closing the Popup by Pressing Esc
+document.addEventListener("keydown", (evt) => {
+
+  modalList.forEach((modal) => {
+    if ((evt.key === "Escape") && (modal.classList.contains("modal_opened"))) {
+      closePopup(modal);
+    };
+  });
+});
