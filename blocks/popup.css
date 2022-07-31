@@ -147,7 +147,7 @@
   line-height: 15px;
 }
 
-.popup__button_disabled {
+.popup__form-save-button_disabled {
   opacity: 0.2;
   color: #000000;
   background-color: transparent;
