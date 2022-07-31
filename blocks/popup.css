@@ -115,7 +115,6 @@
 .popup__photo {
   max-width: 75vw;
   max-height: 75vh;
-  /* margin: 90px auto 0; */
   object-fit: cover;
 }
 
