@@ -1,5 +1,3 @@
-// console.log("Connected!"); 
-
 // Show the error message
 const showInputError = (formElement, inputElement, {inputErrorClass, errorClass}) => {
   const errorMessageElement = formElement.querySelector(`#${inputElement.id}-error`);
