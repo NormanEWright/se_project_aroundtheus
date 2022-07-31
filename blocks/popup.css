@@ -147,13 +147,6 @@
   line-height: 15px;
 }
 
-.popup__form-save-button_disabled {
-  opacity: 0.2;
-  color: #000000;
-  background-color: transparent;
-  border: 1px solid #000000;
-}
-
 /* Media Query for Tablet devices */
 @media screen and (min-width: 768px) {
 
