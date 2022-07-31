@@ -77,7 +77,7 @@ const config = {
   formSelector: ".popup__form",
   inputSelector: ".popup__form-input",
   submitButtonSelector: ".popup__form-save-button",
-  inactiveButtonClass: "popup__button_disabled",
+  inactiveButtonClass: "popup__form-save-button_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible"
 };
