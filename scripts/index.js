@@ -28,21 +28,21 @@ const initialCards = [
 
 // Edit Profile Button, Modal, Close Button
 const editProfileBtn = document.querySelector(".profile__edit-button");
-const editProfileModal = document.querySelector("#edit-profile-modal");
-const editProfileForm = editProfileModal.querySelector("#edit-profile-form");
+const editProfilePopup = document.querySelector("#edit-profile-popup");
+const editProfileForm = editProfilePopup.querySelector("#edit-profile-form");
 
 // Add Card Button, Modal, Close Button
 const addCardBtn = document.querySelector(".profile__add-card-button");
-const addCardModal = document.querySelector("#add-card-modal");
-const addCardForm = addCardModal.querySelector("#add-card-form");
+const addCardPopup = document.querySelector("#add-card-popup");
+const addCardForm = addCardPopup.querySelector("#add-card-form");
 
 // View Photo Modal, Close Button
-const viewPhotoModal = document.querySelector("#view-photo-modal");
-const modalPhoto = viewPhotoModal.querySelector(".modal__photo");
-const modalPhotoTitle = viewPhotoModal.querySelector(".modal__photo-title");
+const viewPhotoPopup = document.querySelector("#view-photo-popup");
+const popupPhoto = viewPhotoPopup.querySelector(".popup__photo");
+const popupPhotoTitle = viewPhotoPopup.querySelector(".popup__photo-title");
 
 // Get All Close Buttons
-const closeButtons = document.querySelectorAll(".modal__close-button");
+const closeButtons = document.querySelectorAll(".popup__close-button");
 
 // Edit Profile Form Inputs
 const nameInput = document.querySelector("#name");
@@ -51,8 +51,8 @@ const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__occupation");
 
 // Add Card Inputs
-const cardTitleInput = addCardModal.querySelector("#title");
-const cardLinkInput = addCardModal.querySelector("#link");
+const cardTitleInput = addCardPopup.querySelector("#title");
+const cardLinkInput = addCardPopup.querySelector("#link");
 
 // Card List, Card Template
 const cardList = document.querySelector(".elements__list");
@@ -77,7 +77,7 @@ function createCard(card) {
 
   cardImage.addEventListener("click", () => {
     renderPhoto(card);
-    openPopup(viewPhotoModal);
+    openPopup(viewPhotoPopup);
   });
 
   cardLikeBtn.addEventListener("click", () => {
@@ -106,9 +106,9 @@ const removeCard = function (card) {
 
 // Render Photo in Modal
 function renderPhoto(cardData) {
-  modalPhoto.src = cardData.link;
-  modalPhoto.alt = cardData.title;
-  modalPhotoTitle.textContent = cardData.title;
+  popupPhoto.src = cardData.link;
+  popupPhoto.alt = cardData.title;
+  popupPhotoTitle.textContent = cardData.title;
 }
 
 // Edit Profile
@@ -123,7 +123,7 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
 
-  closePopup(editProfileModal);
+  closePopup(editProfilePopup);
 }
 
 editProfileForm.addEventListener('submit', handleProfileFormSubmit);
@@ -141,43 +141,42 @@ function handleAddCardForm(evt) {
   });
 
   evt.target.reset();
-  closePopup(addCardModal);
+  closePopup(addCardPopup);
 }
 
 addCardForm.addEventListener("submit", handleAddCardForm);
 
 // Open Popups
 function openPopup(popup) {
-  popup.classList.add("modal_opened");
+  popup.classList.add("popup_opened");
 }
 
 editProfileBtn.addEventListener("click", () => {
   fillProfileForm();
-  openPopup(editProfileModal);
+  openPopup(editProfilePopup);
 });
 
 addCardBtn.addEventListener("click", () => {
-  openPopup(addCardModal);
+  openPopup(addCardPopup);
 })
 
 // Close Popups
 function closePopup(popup) {
-  popup.classList.remove("modal_opened");
+  popup.classList.remove("popup_opened");
 }
 
 closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
+  const popup = button.closest(".popup");
   button.addEventListener("click", () => closePopup(popup));
 });
 
-
 // 3. Closing the Popup by Clicking the Overlay
-const modalList = document.querySelectorAll(".modal");
+const popupList = document.querySelectorAll(".popup");
 
-modalList.forEach((modal) => {
-  modal.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("modal")) {
-      closePopup(modal);
+popupList.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      closePopup(popup);
     };
   });
 });
@@ -185,9 +184,9 @@ modalList.forEach((modal) => {
 // 4. Closing the Popup by Pressing Esc
 document.addEventListener("keydown", (evt) => {
 
-  modalList.forEach((modal) => {
-    if ((evt.key === "Escape") && (modal.classList.contains("modal_opened"))) {
-      closePopup(modal);
+  popupList.forEach((element) => {
+    if ((evt.key === "Escape") && (element.classList.contains("popup_opened"))) {
+      closePopup(element);
     };
   });
 });
