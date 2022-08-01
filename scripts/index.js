@@ -26,6 +26,9 @@ const initialCards = [
   },
 ];
 
+// Get all popups
+const popupList = document.querySelectorAll(".popup");
+
 // Edit Profile Button, Modal, Close Button
 const editProfileBtn = document.querySelector(".profile__edit-button");
 const editProfilePopup = document.querySelector("#edit-profile-popup");
@@ -40,9 +43,6 @@ const addCardForm = addCardPopup.querySelector("#add-card-form");
 const viewPhotoPopup = document.querySelector("#view-photo-popup");
 const popupPhoto = viewPhotoPopup.querySelector(".popup__photo");
 const popupPhotoTitle = viewPhotoPopup.querySelector(".popup__photo-title");
-
-// Get All Close Buttons
-const closeButtons = document.querySelectorAll(".popup__close-button");
 
 // Edit Profile Form Inputs
 const nameInput = document.querySelector("#name");
@@ -131,7 +131,7 @@ editProfileForm.addEventListener('submit', handleProfileFormSubmit);
 // Add Card
 function handleAddCardForm(evt) {
   evt.preventDefault();
-
+  const saveButton = evt.target.querySelector(".popup__form-save-button");
   const title = cardTitleInput.value;
   const link = cardLinkInput.value;
 
@@ -141,6 +141,8 @@ function handleAddCardForm(evt) {
   });
 
   evt.target.reset();
+  saveButton.classList.add("popup__form-save-button_disabled");
+  saveButton.disabled = true;
   closePopup(addCardPopup);
 }
 
@@ -165,19 +167,15 @@ function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
 
-closeButtons.forEach((button) => {
-  const popup = button.closest(".popup");
-  button.addEventListener("click", () => closePopup(popup));
-});
-
-// 3. Closing the Popup by Clicking the Overlay
-const popupList = document.querySelectorAll(".popup");
-
+// 3. Close all popups by clicking on the overlay, or close button
 popupList.forEach((popup) => {
-  popup.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("popup")) {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains("popup_opened")) {
       closePopup(popup);
-    };
+    }
+    if (evt.target.parentNode.classList.contains("popup__close-button")) {
+      closePopup(popup);
+    }
   });
 });
 
