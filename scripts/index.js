@@ -148,10 +148,19 @@ function handleAddCardForm(evt) {
 
 addCardForm.addEventListener("submit", handleAddCardForm);
 
+// Close all popups by pressing the Esc key
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  };
+};
+
 // Open Popups
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-}
+  document.addEventListener("keydown", closeByEscape);
+};
 
 editProfileBtn.addEventListener("click", () => {
   fillProfileForm();
@@ -160,31 +169,22 @@ editProfileBtn.addEventListener("click", () => {
 
 addCardBtn.addEventListener("click", () => {
   openPopup(addCardPopup);
-})
+});
 
 // Close Popups
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-}
+  document.removeEventListener("keydown", closeByEscape);
+};
 
-// 3. Close all popups by clicking on the overlay, or close button
+// Close all popups by clicking on the overlay, or close button
 popupList.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains("popup_opened")) {
       closePopup(popup);
-    }
+    };
     if (evt.target.parentNode.classList.contains("popup__close-button")) {
       closePopup(popup);
-    }
-  });
-});
-
-// 4. Closing the Popup by Pressing Esc
-document.addEventListener("keydown", (evt) => {
-
-  popupList.forEach((element) => {
-    if ((evt.key === "Escape") && (element.classList.contains("popup_opened"))) {
-      closePopup(element);
     };
   });
 });
