@@ -1,3 +1,5 @@
+import FormValidator from "./FormValidator.js";
+
 // Initial Cards Object
 const initialCards = [
   {
@@ -188,3 +190,17 @@ popupList.forEach((popup) => {
     };
   });
 });
+
+const config = {
+  inputSelector: ".popup__form-input",
+  submitButtonSelector: ".popup__form-save-button",
+  inactiveButtonClass: "popup__form-save-button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible"
+};
+
+const editProfileValidator = new FormValidator(config, editProfileForm);
+const addCardValidator = new FormValidator(config, addCardForm);
+
+editProfileValidator.enableValidation();
+addCardValidator.enableValidation();
