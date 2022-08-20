@@ -1,4 +1,4 @@
-import { openPopup } from "./index.js";
+import { openPopup } from "./utils.js";
 
 // View Photo Modal
 const viewPhotoPopup = document.querySelector("#view-photo-popup");
