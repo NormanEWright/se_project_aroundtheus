@@ -1,4 +1,5 @@
 import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
 
 // Initial Cards Object
 const initialCards = [
@@ -58,45 +59,49 @@ const cardLinkInput = addCardPopup.querySelector("#link");
 
 // Card List, Card Template
 const cardList = document.querySelector(".elements__list");
-const cardTemplate = document.querySelector("#card-template").content;
+// const cardTemplate = document.querySelector("#card-template").content;
 
 // Toggle Like Button
-const toggleLikeBtn = function (btn) {
-  btn.classList.toggle("card__like-button_active");
-}
+// const toggleLikeBtn = function (btn) {
+//   btn.classList.toggle("card__like-button_active");
+// }
 
 // Create Cards
 function createCard(card) {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const cardTitle = cardElement.querySelector(".card__title");
-  const cardImage = cardElement.querySelector(".card__photo");
-  const deleteCardBtn = cardElement.querySelector(".card__delete-button");
-  const cardLikeBtn = cardElement.querySelector(".card__like-button");
+  // const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  // const cardTitle = cardElement.querySelector(".card__title");
+  // const cardImage = cardElement.querySelector(".card__photo");
+  // const deleteCardBtn = cardElement.querySelector(".card__delete-button");
+  // const cardLikeBtn = cardElement.querySelector(".card__like-button");
 
-  cardImage.src = card.link;
-  cardImage.alt = card.title;
-  cardTitle.textContent = card.title;
+  // cardImage.src = card.link;
+  // cardImage.alt = card.title;
+  // cardTitle.textContent = card.title;
 
   cardImage.addEventListener("click", () => {
     renderPhoto(card);
     openPopup(viewPhotoPopup);
   });
 
-  cardLikeBtn.addEventListener("click", () => {
-    toggleLikeBtn(cardLikeBtn);
-  });
+  // cardLikeBtn.addEventListener("click", () => {
+  //   toggleLikeBtn(cardLikeBtn);
+  // });
 
-  deleteCardBtn.addEventListener("click", () => {
-    removeCard(cardElement);
-  });
+  // deleteCardBtn.addEventListener("click", () => {
+  //   removeCard(cardElement);
+  // });
 
   return cardElement;
 }
 
+const cardSelector = "#card-template";
+
 // Render Cards
 function renderCards(card) {
-  const cardElement = createCard(card);
-  cardList.prepend(cardElement);
+  // const cardElement = createCard(card);
+  const cardElement = new Card(card, cardSelector);
+  // cardElement.createCard();
+  cardList.prepend(cardElement.createCard());
 }
 
 initialCards.reverse().forEach(renderCards);
@@ -159,7 +164,7 @@ function closeByEscape(evt) {
 };
 
 // Open Popups
-function openPopup(popup) {
+export function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closeByEscape);
 };
