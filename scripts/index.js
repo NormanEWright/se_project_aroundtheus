@@ -1,4 +1,4 @@
-import { renderCards } from "./utils.js";
+import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
 // Initial Cards Object
@@ -29,8 +29,18 @@ const initialCards = [
   },
 ];
 
+// Get card wrapper
+const cardList = document.querySelector(".elements__list");
+
+// Get form elements
 const editProfileForm = document.querySelector("#edit-profile-form");
 const addCardForm = document.querySelector("#add-card-form");
+
+// Render Cards
+export function renderCards(card) {
+  const cardElement = new Card(card, "#card-template");
+  cardList.prepend(cardElement.createCard());
+}
 
 initialCards.reverse().forEach(renderCards);
 

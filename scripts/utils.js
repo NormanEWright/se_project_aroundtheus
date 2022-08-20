@@ -1,10 +1,8 @@
-import Card from "./Card.js";
+import { renderCards } from "./index.js";
 
 // Get all popups
 const popupList = document.querySelectorAll(".popup");
 
-// Get card wrapper
-const cardList = document.querySelector(".elements__list");
 
 // Edit Profile Button, Modal, Close Button
 const editProfileBtn = document.querySelector(".profile__edit-button");
@@ -48,12 +46,6 @@ function handleProfileFormSubmit(evt) {
 
 // Edit profile form submit event listener
 editProfileForm.addEventListener('submit', handleProfileFormSubmit);
-
-// Render Cards
-export function renderCards(card) {
-  const cardElement = new Card(card, "#card-template");
-  cardList.prepend(cardElement.createCard());
-}
 
 // Handle add card form submit event
 function handleAddCardForm(evt) {
