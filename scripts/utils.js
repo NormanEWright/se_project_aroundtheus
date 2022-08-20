@@ -1,13 +1,3 @@
-import { fillProfileForm } from "./index.js";
-
-// Edit profile elements
-const editProfileBtn = document.querySelector(".profile__edit-button");
-const editProfilePopup = document.querySelector("#edit-profile-popup");
-
-// Add card elements
-const addCardBtn = document.querySelector(".profile__add-card-button");
-const addCardPopup = document.querySelector("#add-card-popup");
-
 // Get all popups
 const popupList = document.querySelectorAll(".popup");
 
@@ -16,17 +6,6 @@ export function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closeByEscape);
 };
-
-// Add event listener to open the edit profile popup
-editProfileBtn.addEventListener("click", () => {
-  fillProfileForm();
-  openPopup(editProfilePopup);
-});
-
-// Add event listener to open the add card popup
-addCardBtn.addEventListener("click", () => {
-  openPopup(addCardPopup);
-});
 
 // Close Popups
 export function closePopup(popup) {

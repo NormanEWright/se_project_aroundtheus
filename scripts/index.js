@@ -1,6 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { closePopup } from "./utils.js";
+import { openPopup, closePopup } from "./utils.js";
 
 // Initial Cards Object
 const initialCards = [
@@ -30,14 +30,17 @@ const initialCards = [
   },
 ];
 
+// Edit profile elements
+const editProfileBtn = document.querySelector(".profile__edit-button");
+
+// Add card elements
+const addCardBtn = document.querySelector(".profile__add-card-button");
+
 // Get card wrapper
 const cardList = document.querySelector(".elements__list");
 
 // Get card template
 const cardTemplate = document.querySelector("#card-template").content;
-
-// Get all popups
-// const popupList = document.querySelectorAll(".popup");
 
 // Edit Profile Button, Modal, Close Button
 const editProfilePopup = document.querySelector("#edit-profile-popup");
@@ -61,6 +64,18 @@ const profileJob = document.querySelector(".profile__occupation");
 // Add Card Inputs
 const cardTitleInput = addCardPopup.querySelector("#title");
 const cardLinkInput = addCardPopup.querySelector("#link");
+
+
+// Add event listener to open the edit profile popup
+editProfileBtn.addEventListener("click", () => {
+  fillProfileForm();
+  openPopup(editProfilePopup);
+});
+
+// Add event listener to open the add card popup
+addCardBtn.addEventListener("click", () => {
+  openPopup(addCardPopup);
+});
 
 // Handle edit profile form submit event
 export function fillProfileForm() {
@@ -86,13 +101,13 @@ const handleImageClick = (link, title) => {
   popupPhotoTitle.textContent = title;
 };
 
-// Render Cards
-export function renderCards(data) {
+// Render card
+export function renderCard(data) {
   const cardElement = new Card(data, cardTemplate, handleImageClick);
   cardList.prepend(cardElement.createCard());
 }
 
-initialCards.reverse().forEach(renderCards);
+initialCards.reverse().forEach(renderCard);
 
 // Handle add card form submit event
 function handleAddCardForm(evt) {
@@ -101,7 +116,7 @@ function handleAddCardForm(evt) {
   const title = cardTitleInput.value;
   const link = cardLinkInput.value;
 
-  renderCards({
+  renderCard({
     title,
     link
   });
