@@ -1,20 +1,16 @@
 import { openPopup } from "./utils.js";
-
-// View Photo Modal
-const viewPhotoPopup = document.querySelector("#view-photo-popup");
-const popupPhoto = viewPhotoPopup.querySelector(".popup__photo");
-const popupPhotoTitle = viewPhotoPopup.querySelector(".popup__photo-title");
+import { viewPhotoPopup } from "./index.js";
 
 class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardTemplate, handleImageClick) {
     this._title = data.title;
     this._link = data.link;
-    this._cardSelector = cardSelector;
+    this._cardTemplate = cardTemplate;
+    this.handleImageClick = handleImageClick;
   }
 
-  _getTemplate() {
-    const cardTemplate = document.querySelector(this._cardSelector).content;
-    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  _getTemplate = () => {
+    const cardElement = this._cardTemplate.querySelector(".card").cloneNode(true);
     const cardTitle = cardElement.querySelector(".card__title");
     const cardImage = cardElement.querySelector(".card__photo");
     const deleteCardBtn = cardElement.querySelector(".card__delete-button");
@@ -25,14 +21,13 @@ class Card {
     cardTitle.textContent = this._title;
 
     this._setEventListener(cardImage, cardLikeBtn, deleteCardBtn, cardElement);
-
     return cardElement;
   }
 
-  _setEventListener(cardImage, cardLikeBtn, deleteCardBtn, cardElement) {
+  _setEventListener = (cardImage, cardLikeBtn, deleteCardBtn, cardElement) => {
     
     cardImage.addEventListener("click", () => {
-      this._handlePhotoViewer();
+      this.handleImageClick(this._link, this._title);
       openPopup(viewPhotoPopup);
     });
 
@@ -41,27 +36,22 @@ class Card {
     });
 
     deleteCardBtn.addEventListener("click", () => {
-      this._handleDeleteCard(cardElement);
+      this._handleDeleteCard();
     });
   }
 
-  _handlePhotoViewer() {
-    popupPhoto.src = this._link;
-    popupPhoto.alt = this._title;
-    popupPhotoTitle.textContent = this._title;
-  }
-
-  _handleLikeButton(cardLikeBtn) {
+  _handleLikeButton = (cardLikeBtn) => {
     cardLikeBtn.classList.toggle("card__like-button_active");
   }
 
-  _handleDeleteCard(cardElement) {
-    cardElement.remove();
+  _handleDeleteCard = () => {
+    this._element.remove();
+    this._element = null;
   }
 
-  createCard() {
-    const cardElement = this._getTemplate(this._cardSelector);
-    return cardElement;
+  createCard = () => {
+     this._element = this._getTemplate();
+    return this._element;
   }
 }
 
