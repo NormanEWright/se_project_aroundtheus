@@ -9,7 +9,7 @@ class Card {
     this.handleImageClick = handleImageClick;
   }
 
-  _getTemplate = () => {
+  _getElement = () => {
     const cardElement = this._cardTemplate.querySelector(".card").cloneNode(true);
     const cardTitle = cardElement.querySelector(".card__title");
     const cardImage = cardElement.querySelector(".card__photo");
@@ -50,7 +50,7 @@ class Card {
   }
 
   createCard = () => {
-     this._element = this._getTemplate();
+     this._element = this._getElement();
     return this._element;
   }
 }
