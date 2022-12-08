@@ -1,4 +1,4 @@
-# Project 3: Around The U.S.
+# Project 8: Around The U.S.
 
 ### Overview  
 
@@ -8,7 +8,7 @@
   
 **Intro**
   
-In this project, I design the foundation of an interactive page where users can add and remove photos, like photos of other users, and make a few minor adjustments to their own profile. Modern web technologies and techniques were utilized in this project (i.e HTML 5, CSS3, Flexbox, Grid Layout, Figma, BEM Methodology and Git) 
+In this project, I design the foundation of an interactive page where users can add and remove photos, like photos of other users, and make a few minor adjustments to their own profile. Modern web technologies and techniques were utilized in this project (i.e HTML 5, CSS3, Flexbox, Grid Layout, Figma, BEM Methodology, npm, Webpack and Git) 
   
 **Figma Design**  
   
